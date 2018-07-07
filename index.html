@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>FEDUP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="fedup, federation, uprising, aider, xmeta, shom, zrem, alwar">
+	<meta name="description" content="FEDUP Home Page">
+	<meta name="author" content="Pedro Athonille">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<!--<link rel="stylesheet" href="./bootstrap.css">-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	
+	<style>
+		.dynamic-content {
+			display: none;
+		}
+		
+		.row {
+			display: flex;
+			margin: 0%;
+			align-content: center;
+			justify-content: center;
+			align-items: center;
+			box-shadow: 0 4px 8px 0 rgba(0, 600, 0, 0.2);
+		}
+		
+		.sidebar {
+			flex: 12%;
+		}
+		
+		.column {
+			flex: 32%;
+			text-align: center;
+		}
+		
+		.center-content {
+			flex: 76%;
+			text-align: center;
+			align-content: center;
+			align-items: center;
+		}
+		
+		/* Corp card styling */
+		.corp-card {
+			display: inline-block;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			max-width: 13vw;
+			height: 100%;
+			margin: auto 5px;
+			text-align: center;
+			font-family: arial;
+			float: left;
+			transition: 0.3s;
+		}
+		.corp-card:hover {
+			transition: 0.3s;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+		}
+	</style>
+</head>
+<body>
+
+	<div id="corp-row" class="row" style="height: 30vh;">
+		<div class="center-content" style="height: 100%;">
+			
+			<div id="xmeta-selector" class="corp-card" toShow="xmeta-info">
+				<h1>[XMETA]</h1>
+			</div>
+		
+			<div id="aider-selector" class="corp-card" toShow="aider-info">
+				<h1>[AIDER]</h1>
+			</div>
+			
+			<div id="alwar-selector" class="corp-card" toShow="alwar-info">
+				<img src="https://image.eveonline.com/Corporation/98383832_256.png" alt="ALWAR" style="width: 60%; margin:5px 0 5px 0;">
+				<h1>Alwar Fleet</h1>
+			</div>
+			
+			<div id="fevan-selector" class="corp-card" toShow="fevan-info">
+				<img src="https://image.eveonline.com/Corporation/98502090_256.png" alt="FEVAN" style="width: 60%; margin:5px 0 5px 0;">
+				<h1>Federal Vanguard</h1>
+			</div>
+			
+			<div id="shom-selector" class="corp-card" toShow="shom-info">
+				<img src="https://image.eveonline.com/Corporation/98535975_256.png" alt="SHOM" style="width: 60%; margin:5px 0 5px 0;">
+				<h1>Shepards Of Mettle</h1>
+			</div>
+			
+			<div id="zrem-selector" class="corp-card" toShow="zrem-info">
+				<img src="https://image.eveonline.com/Corporation/98543755_256.png" alt="ZREM" style="width: 60%; margin:5px 0 5px 0;">
+				<h1>Zeon Remnant</h1>
+			</div>
+			
+			<div id="onslt-selector" class="corp-card" toShow="onslt-info">
+				<img src="https://image.eveonline.com/Corporation/98561878_256.png" alt="ONSLT" style="width: 60%; margin:5px 0 5px 0;">
+				<h1>Onslaught.</h1>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div id="info-row" class="row">
+		<div class="center-content">
+			
+			<div id="xmeta-info" class="dynamic-content corp-info">
+				<img src="https://image.eveonline.com/Corporation/901319835_256.png" alt="XMETA" style="width: 10%; margin:5px 0 5px 0;">
+				<h1>Mecha Enterprises Fleet</h1>
+			</div>
+			
+			<div id="aider-info" class="dynamic-content corp-info">
+				<img src="https://image.eveonline.com/Corporation/1894214152_256.png" alt="AIDER" style="width: 10%; margin:5px 0 5px 0;">
+				<h1>Aideron Robotics</h1>
+			</div>
+			
+			<div id="alwar-info" class="dynamic-content corp-info">
+				<p>alwar</p>
+			</div>
+			
+			<div id="fevan-info" class="dynamic-content corp-info">
+				<p>fevan</p>
+			</div>
+			
+			<div id="shom-info" class="dynamic-content corp-info">
+				<p>shom</p>
+			</div>
+			
+			<div id="zrem-info" class="dynamic-content corp-info">
+				<p>zrem</p>
+			</div>
+			
+			<div id="onslt-info" class="dynamic-content corp-info">
+				<p>onslt</p>
+				<img src="https://image.eveonline.com/Corporation/98561878_256.png" alt="ONSLT" style="width: 10%; margin:5px 0 5px 0;">
+				<h1>Onslaught.</h1>
+			</div>
+			
+		</div>
+	</div>
+	
+	<script>
+	var coll = document.getElementsByClassName("collapsible");
+	var i;
+
+	for (i = 0; i < coll.length; i++) {
+		coll[i].addEventListener("click", function() {
+			this.classList.toggle("active");
+			var content = this.nextElementSibling;
+			if (content.style.maxHeight){
+				content.style.maxHeight = null;
+			} else {
+				content.style.maxHeight = content.scrollHeight + "px";
+			}
+		});
+	}
+	</script>
+	
+	<!-- Latest compiled and minified JQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<!-- Latest compiled and minified Bootstrap -->
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="main.js"></script>
+	
+</body>
+
+</html>
