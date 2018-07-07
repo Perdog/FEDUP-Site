@@ -1,5 +1,5 @@
-var lastShown;
-var lastIndex;
+var lastShown = "#xmeta-info";
+var lastIndex = 1;
 var alreadySwitching = false;
 
 $(".corp-button").on("click", function() {
