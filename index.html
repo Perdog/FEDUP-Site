@@ -10,7 +10,7 @@
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.18.1/vis.min.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<!--<link rel="stylesheet" href="./bootstrap.css">-->
+	<link rel="stylesheet" href="./bootstrap.css">
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	
 	<style>
@@ -47,56 +47,48 @@
 		.corp-card {
 			display: inline-block;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-			max-width: 13vw;
-			height: 100%;
 			margin: auto 5px;
 			text-align: center;
 			font-family: arial;
-			float: left;
+			float: center;
 			transition: 0.3s;
 		}
 		.corp-card:hover {
 			transition: 0.3s;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 		}
+		.corp-logo {
+			width: 10%;
+		}
+		.corp-button {
+			display: inline-block;
+			font-size: 1em;
+			margin: auto 5px;
+			text-align: center;
+			font-family: arial;
+			float: center;
+			transition: 0.3s;
+		}
 	</style>
 </head>
 <body>
 
-	<div id="corp-row" class="row" style="height: 30vh;">
-		<div class="center-content" style="height: 100%;">
+	<div id="corp-row" class="row">
+		<div class="center-content">
 			
-			<div id="xmeta-selector" class="corp-card" toShow="xmeta-info" index="1">
-				<h1>[XMETA]</h1>
-			</div>
+			<a id="xmeta-selector" class="btn btn-default corp-button" toShow="xmeta-info" index="1">[XMETA]</a>
 		
-			<div id="aider-selector" class="corp-card" toShow="aider-info" index="2">
-				<h1>[AIDER]</h1>
-			</div>
+			<a id="aider-selector" class="btn btn-default corp-button" toShow="aider-info" index="2">[AIDER]</a>
 			
-			<div id="alwar-selector" class="corp-card" toShow="alwar-info" index="3">
-				<h1>[ALWAR]</h1>
-			</div>
+			<a id="alwar-selector" class="btn btn-default corp-button" toShow="alwar-info" index="3">[ALWAR]</a>
 			
-			<div id="fevan-selector" class="corp-card" toShow="fevan-info" index="4">
-				<img src="https://image.eveonline.com/Corporation/98502090_256.png" alt="FEVAN" style="width: 60%; margin:5px 0 5px 0;">
-				<h1>Federal Vanguard</h1>
-			</div>
+			<a id="fevan-selector" class="btn btn-default corp-button" toShow="fevan-info" index="4">[FEVAN]</a>
 			
-			<div id="shom-selector" class="corp-card" toShow="shom-info" index="5">
-				<img src="https://image.eveonline.com/Corporation/98535975_256.png" alt="SHOM" style="width: 60%; margin:5px 0 5px 0;">
-				<h1>Shepards Of Mettle</h1>
-			</div>
+			<a id="shom-selector" class="btn btn-default corp-button" toShow="shom-info" index="5">[SHOM]</a>
 			
-			<div id="zrem-selector" class="corp-card" toShow="zrem-info" index="6">
-				<img src="https://image.eveonline.com/Corporation/98543755_256.png" alt="ZREM" style="width: 60%; margin:5px 0 5px 0;">
-				<h1>Zeon Remnant</h1>
-			</div>
+			<a id="zrem-selector" class="btn btn-default corp-button" toShow="zrem-info" index="6">[ZREM]</a>
 			
-			<div id="onslt-selector" class="corp-card" toShow="onslt-info" index="7">
-				<img src="https://image.eveonline.com/Corporation/98561878_256.png" alt="ONSLT" style="width: 60%; margin:5px 0 5px 0;">
-				<h1>Onslaught.</h1>
-			</div>
+			<a id="onslt-selector" class="btn btn-default corp-button" toShow="onslt-info" index="7">[ONSLT]</a>
 			
 		</div>
 	</div>
@@ -105,35 +97,38 @@
 		<div class="center-content">
 			
 			<div id="xmeta-info" class="dynamic-content corp-info">
-				<img src="https://image.eveonline.com/Corporation/901319835_256.png" alt="XMETA" style="width: 10%; margin:5px 0 5px 0;">
+				<img class="corp-logo" src="https://image.eveonline.com/Corporation/901319835_256.png" alt="XMETA">
 				<h1>Mecha Enterprises Fleet</h1>
+				<p>Blah blah blah blah blah blah our corp is great because blah blah</p>
 			</div>
 			
 			<div id="aider-info" class="dynamic-content corp-info">
-				<img src="https://image.eveonline.com/Corporation/1894214152_256.png" alt="AIDER" style="width: 10%; margin:5px 0 5px 0;">
+				<img class="corp-logo" src="https://image.eveonline.com/Corporation/1894214152_256.png" alt="AIDER">
 				<h1>Aideron Robotics</h1>
 			</div>
 			
 			<div id="alwar-info" class="dynamic-content corp-info">
-				<img src="https://image.eveonline.com/Corporation/98383832_256.png" alt="ALWAR" style="width: 10%; margin:5px 0 5px 0;">
+				<img class="corp-logo" src="https://image.eveonline.com/Corporation/98383832_256.png" alt="ALWAR">
 				<h1>Alwar Fleet</h1>
 			</div>
 			
 			<div id="fevan-info" class="dynamic-content corp-info">
-				<p>fevan</p>
+				<img class="corp-logo" src="https://image.eveonline.com/Corporation/98502090_256.png" alt="FEVAN">
+				<h1>Federal Vanguard</h1>
 			</div>
 			
 			<div id="shom-info" class="dynamic-content corp-info">
-				<p>shom</p>
+				<img class="corp-logo" src="https://image.eveonline.com/Corporation/98535975_256.png" alt="SHOM">
+				<h1>Shepards Of Mettle</h1>
 			</div>
 			
 			<div id="zrem-info" class="dynamic-content corp-info">
-				<p>zrem</p>
+				<img class="corp-logo" src="https://image.eveonline.com/Corporation/98543755_256.png" alt="ZREM">
+				<h1>Zeon Remnant</h1>
 			</div>
 			
 			<div id="onslt-info" class="dynamic-content corp-info">
-				<p>onslt</p>
-				<img src="https://image.eveonline.com/Corporation/98561878_256.png" alt="ONSLT" style="width: 10%; margin:5px 0 5px 0;">
+				<img class="corp-logo" src="https://image.eveonline.com/Corporation/98561878_256.png" alt="ONSLT">
 				<h1>Onslaught.</h1>
 			</div>
 			
