@@ -14,17 +14,80 @@ $(".corp-button").on("click", function() {
 	if (lastShown == toShow)
 		return;
 	
-	alreadySwitching = true;
-	
-	if (lastShown)
-		$(lastShown).hide("slide", {direction: (ind > lastIndex ? "left" : "right")}, 500);
-	
-	setTimeout(function() {
+	/*
+	$(lastShown).hide("slide", {direction: (ind > lastIndex ? "left" : "right")}, 500, function() {
 		$(toShow).show("slide", {direction: (lastIndex ? (ind > lastIndex ? "right" : "left") : "left")}, 500, function() {
 			lastShown = toShow;
 			lastIndex = ind;
 			alreadySwitching = false;
 		});
-	}, 525);
-	
+	});
+	*/
+	if (ind > lastIndex) {
+		alreadySwitching = true;
+		$(lastShown).animate(
+							{
+								// Fade out to the left
+								left: 0 - $(lastShown).width(),
+								opacity: "hide",
+							},
+							{
+								duration: "2000",
+								easing: "linear",
+								complete: function()
+								{
+									// Set position to far right
+									$(toShow).css("left", $(document).width());
+									$(toShow).animate(
+													{
+														// Slide in to middle
+														left: $(document).width()/2,
+														opacity: "show",
+													},
+													{
+														duration: "2000",
+														easing: "linear",
+														complete: function()
+														{
+															lastShown = toShow;
+															lastIndex = ind;
+															alreadySwitching = false;
+														},
+													});
+								},
+							});
+	} else {
+		alreadySwitching = true;
+		$(lastShown).animate(
+							{
+								// Fade out to the right
+								left: $(document).width(),
+								opacity: "hide",
+							},
+							{
+								duration: "2000",
+								easing: "linear",
+								complete: function()
+								{
+									// Set position to far right
+									$(toShow).css("left", 0 - $(toShow).width());
+									$(toShow).animate(
+													{
+														// Slide in to middle
+														left: $(document).width()/2,
+														opacity: "show",
+													},
+													{
+														duration: "2000",
+														easing: "linear",
+														complete: function()
+														{
+															lastShown = toShow;
+															lastIndex = ind;
+															alreadySwitching = false;
+														},
+													});
+								},
+							});
+	}
 });
