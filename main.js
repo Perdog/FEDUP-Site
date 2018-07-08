@@ -37,11 +37,11 @@ $(".corp-button").on("click", function() {
 								complete: function()
 								{
 									// Set position to far right
-									$(toShow).css("left", $(document).width());
+									$(toShow).css("left", "100%");
 									$(toShow).animate(
 													{
 														// Slide in to middle
-														left: $(document).width()/2,
+														left: "50%",
 														opacity: "show",
 													},
 													{
@@ -70,11 +70,11 @@ $(".corp-button").on("click", function() {
 								complete: function()
 								{
 									// Set position to far right
-									$(toShow).css("left", 0 - $(toShow).width());
+									$(toShow).css("right", "100%");
 									$(toShow).animate(
 													{
 														// Slide in to middle
-														left: $(document).width()/2,
+														left: "50%",
 														opacity: "show",
 													},
 													{
