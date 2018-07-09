@@ -69,8 +69,8 @@ $(".corp-button").on("click", function() {
 								easing: "linear",
 								complete: function()
 								{
-									// Set position to far right
-									$(toShow).css("right", "100%");
+									// Set position to far left
+									$(toShow).css("left", "0%");
 									$(toShow).animate(
 													{
 														// Slide in to middle
